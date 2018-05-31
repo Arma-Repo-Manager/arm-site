@@ -2,77 +2,17 @@
 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div class="container" style="min-height: 100%;
-    height: 100%;">
- <div class="row align-items-start">
-    <div class="col-9">
-       <div class="row">
-       <h1>Hello {{ controller_name }}! ✅</h1>
-       </div>
-       <div class="row" style="min-height:400px;">
+{% block body_title %}<h1>Hello {{ controller_name }}! ✅</h1>{% endblock %}
+
+{% block body_content %}
+      <div class="row">
           <p>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code>
           <br>Your template at <code><a href="{{ 'templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></p>
        </div>
-    </div>
-     <div class="col">
-       <h1>Login</h1>
-    </div>
-  </div>
-
-<div class="row align-items-end" style="bottom: 0">
-    <div class="col">
-      Arma
-    </div>
-    <div class="col">
-      Version: alpha
-    </div>
-    <div class="col">
-      Created by Flaver & Reloader
-    </div>
-  </div>
-</div>
-<!--
-<div class="container-fluid">
-  <div class="container">
-    <div class="row">
-      <div class="col-8">
-        <div class="container">
-          <h1>Hello {{ controller_name }}! ✅</h1>
-      </div>
-      <div class="container">
-          This friendly message is coming from:
-          <ul>
-              <li>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-              <li>Your template at <code><a href="{{ 'templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-          </ul>
-          
-      </div>
-      <div class="container" style="width:20%;max-width:400px;">
-          <img src="http://zadman.de/wp-content/uploads/2014/08/hallo-welt.jpg" class="img-fluid float-right">
-      </div>
-      </div>
-      <div class="col">
-        <button type="button" class="btn btn-outline-primary">Primary</button>
-      </div>
-    
-      
-  </div>
-  <div class="row align-items-end">
-      <div class="col">
-        One of three columns
-      </div>
-      <div class="col">
-        One of three columns
-      </div>
-      <div class="col">
-        One of three columns
-      </div>
-    </div>
-  </div>
-</div>-->
+       <div class="row">
+          <img src="http://zadman.de/wp-content/uploads/2014/08/hallo-welt.jpg" class="img-fluid">
+       </div>
+       {% endblock %}
+{% block body_right_content %}
+<h1>Login</h1>
 {% endblock %}
