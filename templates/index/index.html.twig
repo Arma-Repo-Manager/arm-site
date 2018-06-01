@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}ARM/{{ controller_name }}!{% endblock %}
 
-{% block body_title %}<h1>Hello {{ controller_name }}! ✅</h1>{% endblock %}
+{% block body_title %}<h1>ARM/{{ controller_name }} </h1>{% endblock %}
 
 {% block body_content %}
-      <div class="row">
-          <p>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code>
-          <br>Your template at <code><a href="{{ 'templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></p>
-       </div>
-       <div class="row">
-          <img src="http://zadman.de/wp-content/uploads/2014/08/hallo-welt.jpg" class="img-fluid">
-       </div>
+        <div class="row" style="height:2em;">
+        </div>
+       <div class="jumbotron">
+            <img src="http://zadman.de/wp-content/uploads/2014/08/hallo-welt.jpg" class="img-fluid">
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+            <br>
+            <br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+            <br>
+            <br>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. </p>
+        </div>
+        <div class="jumbotron">
+            <p>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code>
+            <br>Your template at <code><a href="{{ 'templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></p>
+        </div>
        {% endblock %}
-{% block body_right_content %}
-<h1>Login</h1>
-{% endblock %}
+

@@ -13,26 +13,29 @@
         {% endblock %}
     </head>
     <body>
-        <div class="container" style="min-height: 100%;height:100%;">
-            <div class="row h-100">
+        <div class="container" style="min-height: 100%;">
+            <div class="row" style="min-height: 100%;">
                 <div class="col-10">
-                <div class="row" style="background-color:#E6E6E6;">
-               {% block body_title %}<h1> ArmaRepositoryManager</h1>{% endblock %}
-                </div>
-               {% block body_content %}
-                <div class="row">
-                    <p>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code>
-                    <br>Your template at <code><a href="{{ 'templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></p>
-                </div>
-                <div class="row">
-                    <img src="http://zadman.de/wp-content/uploads/2014/08/hallo-welt.jpg" class="img-fluid">
-                </div>
+                    <div class="row" style="background-color:#E6E6E6;">
+                        <div class="page-header">
+                        <a href="http://127.0.0.1:8000">{% block body_title %}<h1> ArmaRepositoryManager</h1>{% endblock %}</a>
+                        </div>
+                    </div>
+                {% block body_content %}
+                    <div class="row">
+                        <h2>Content</h2>
+                    </div>
+                    
                 {% endblock %}
                 </div>
-                <div class="col-2 h-100"  style="background-color:#E6E6E6;">
-                {% block body_right_content %}
-                 <h1>Login</h1>
-                {% endblock %}
+                <div class="col-2 "  style="background-color:#E6E6E6;">
+                    {% block body_right_content %}
+                    <div class="btn-group w-100 btn-group-justified" role="group" aria-label="Justified button group">
+                    <a class="btn btn-lg" role="button" style="width:70%;" href="http://127.0.0.1:8000/login">Login</a>
+                    <button class="btn btn-lg btn-secondary" role="button" style="width:30%;" onclick="prompt('Register: Please enter your name', '')">+</button>
+                    </div>
+                    <a href="http://207.154.196.33/" class="btn w-100" role="button" style="border-color:black;" target="_blank">Dev Link</a>
+                    {% endblock %}
                 </div>
             </div>
         </div>
@@ -47,6 +50,8 @@
                 <div class="col">
                     Created by Flaver & Reloader
                 </div>
+                <div class="col-2" style="text-align:right;">
+                    0.0.0.0✅
                 </div>
             </div>
         </div>
