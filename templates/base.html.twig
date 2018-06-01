@@ -28,10 +28,10 @@
                     
                 {% endblock %}
                 </div>
-                <div class="col-2 "  style="background-color:#E6E6E6;">
+                <div class="col-2 d-none d-md-block"  style="background-color:#E6E6E6;">
                     {% block body_right_content %}
                     <div class="btn-group w-100 btn-group-justified" role="group" aria-label="Justified button group">
-                    <a class="btn btn-lg" role="button" style="width:70%;" href="http://127.0.0.1:8000/login">Login</a>
+                    <a class="btn btn-lg hidden-lg-down" role="button" style="width:70%;" href="http://127.0.0.1:8000/login">Login</a>
                     <button class="btn btn-lg btn-secondary" role="button" style="width:30%;" onclick="prompt('Register: Please enter your name', '')">+</button>
                     </div>
                     <a href="http://207.154.196.33/" class="btn w-100" role="button" style="border-color:black;" target="_blank">Dev Link</a>
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="container" style="background-color:#E6E6E6;">
+        <div class="container d-none d-sm-block" style="background-color:#E6E6E6;">
             <div class="row" style="bottom: 0">
                 <div class="col">
                     ArmaRepositoryManager
