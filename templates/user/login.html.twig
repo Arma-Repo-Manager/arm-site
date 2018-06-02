@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ARM/{{ controller_name }}!{% endblock %}
+
+{% block nav_title %}<h1>ARM/{{ controller_name }} </h1>{% endblock %}
+{% block body_title %}<h1>ARM/{{ controller_name }} </h1>{% endblock %}
+
+{% block body_content %}
+        <div class="row" class="spacer-small">
+        </div>
+       <div class="jumbotron">
+            <form action="/login_submit" methode="post">
+                <div class="form-group">
+                    <label for="uid">UID:</label>
+                    <input type="text" class="form-control" name="uid">
+                </div>
+                 <div class="form-group">
+                    <label for="username">Name:</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="checkbox">
+                        <label><input type="checkbox" > Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-default w-100">Submit</button>
+            </form>
+
+         </div>
+{% endblock %}
+

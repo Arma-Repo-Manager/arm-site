@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class user
+class User
 {
     /**
      * @ORM\Id()
@@ -69,7 +69,7 @@ class user
         return $this->email;
     }
 
-    public function setEmail(string $password): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 

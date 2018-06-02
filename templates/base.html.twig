@@ -27,8 +27,8 @@
       <ul class="nav navbar-nav">
       {% block nav_action %}
         <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
-            <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{# path('login') #}">Login</a>
-            <button class="btn btn-lg btn-secondary w-30" role="button" href="{# path('login') #}")">+</button>
+            <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{{ path('login') }}">Login</a>
+            <a class="btn btn-lg btn-secondary w-30" role="button" href="{{ path('register') }}">+</a>
         </div>  
       {% endblock %}
       </ul>
