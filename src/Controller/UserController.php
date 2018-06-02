@@ -4,27 +4,28 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
-class LoginController extends Controller
+class UserController extends Controller
 {
    /**
-     * @Route("/product", name="product")
+     * @Route("/register", name="register")
      */
-    public function index()
+    public function index(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $product = new Product();
-        $product->setName('Keyboard');
-        $product->setPrice(1999);
-        $product->setDescription('Ergonomic and stylish!');
+        $user = new User();
+        $user->setUsername($request->query->get('username'));
+        $user->setPassword($password);
+        $user->setEmail($request->query->get('email'));
 
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($product);
+        // tell Doctrine you want to (eventually) save the user (no queries yet)
+        $entityManager->persist($user);
 
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return new Response('Saved new product with id '.$product->getId());
+        return new Response('Saved new user with id '.$user->getId());
     }
 }
