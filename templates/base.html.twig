@@ -19,16 +19,18 @@
     <div class="navbar navbar-light bg-faded">
       <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
         <span class="sr-only">Toggle drawer</span>
-        <i class="material-icons"><img src="{{ asset('build/icons/menu.png') }}" style="height:32px;" alt="menu"></i>
+        <i class="material-icons"><img src="{{ asset('build/icons/menu.png') }}" class="icon-small" alt="menu"></i>
       </button>
        <div class="page-header">
-            <a href="{{ path('index') }}">{% block body_title %}<h1> ArmaRepositoryManager</h1>{% endblock %}</a>
+            <a href="{{ path('index') }}">{% block nav_title %}<h1> ArmaRepositoryManager</h1>{% endblock %}</a>
         </div>
       <ul class="nav navbar-nav">
+      {% block nav_action %}
         <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
-            <a class="btn btn-info btn-lg hidden-lg-down" role="button" style="width:70%;" href="{{ path('login') }}">Login</a>
-            <button class="btn btn-lg btn-secondary" role="button" style="width:30%;" onclick="prompt('Register: Please enter your name', '')">+</button>
-        </div>
+            <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{{ path('login') }}">Login</a>
+            <button class="btn btn-lg btn-secondary w-30" role="button" onclick="prompt('Register: Please enter your name', '')">+</button>
+        </div>  
+      {% endblock %}
       </ul>
     </div>
   </header>
@@ -44,10 +46,10 @@
   </div>
   <main class="bmd-layout-content">
     <div class="container-fluid p-0">
-        <div class="container" style="min-height: 100%;">
-            <div class="row" style="min-height: 100%;">
+        <div class="container minh-100">
+            <div class="row minh-100">
                 <div class="col-10">
-                    <div class="row" style="background-color:#E6E6E6;">
+                    <div class="row background-color-primary">
                        
                     </div>
                 {% block body_content %}
@@ -57,16 +59,16 @@
                     
                 {% endblock %}
                 </div>
-                <div class="col-2 d-none d-md-block"  style="background-color:#E6E6E6;">
+                <div class="col-2 d-none d-md-block background-color-primary">
                     {% block body_right_content %}
                     
-                    <a href="http://207.154.196.33/" class="btn w-100" role="button" style="border-color:black;" target="_blank">Dev Link</a>
+                    <a href="http://207.154.196.33/" class="btn w-100 border-color-black" role="button" target="_blank">Dev Link</a>
                     {% endblock %}
                 </div>
             </div>
         </div>
-        <div class="container-fluid d-none d-sm-block" style="background-color:#E6E6E6;">
-            <div class="row" style="bottom: 0">
+        <div class="container-fluid d-none d-sm-block background-color-primary">
+            <div class="row">
                 <div class="col">
                     ArmaRepositoryManager
                 </div>
@@ -76,7 +78,7 @@
                 <div class="col">
                     Created by Flaver & Reloader
                 </div>
-                <div class="col-2" style="text-align:right;">
+                <div class="col-2 text-right">
                     0.0.0.0✅
                 </div>
             </div>
