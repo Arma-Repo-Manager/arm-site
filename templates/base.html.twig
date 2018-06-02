@@ -10,9 +10,37 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <link href="{{ asset('build/css/app.css') }}" rel="stylesheet" />
+             <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
         {% endblock %}
     </head>
-    <body>
+<body>
+<div class="bmd-layout-container bmd-drawer-f-l">
+  <header class="bmd-layout-header">
+    <div class="navbar navbar-light bg-faded">
+      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+        <span class="sr-only">Toggle drawer</span>
+        <i class="material-icons"><img src="{{ asset('build/icons/menu.png') }}" style="height:32px;" alt="menu"></i>
+      </button>
+      <ul class="nav navbar-nav">
+        <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
+            <a class="btn btn-info btn-lg hidden-lg-down" role="button" style="width:70%;" href="http://127.0.0.1:8000/login">Login</a>
+            <button class="btn btn-lg btn-secondary" role="button" style="width:30%;" onclick="prompt('Register: Please enter your name', '')">+</button>
+        </div>
+      </ul>
+    </div>
+  </header>
+  <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+    <header>
+      <a class="navbar-brand" href="http://127.0.0.1:8000">Home</a>
+    </header>
+    <ul class="list-group">
+      <a class="list-group-item">Link 1</a>
+      <a class="list-group-item">Link 2</a>
+      <a class="list-group-item">Link 3</a>
+    </ul>
+  </div>
+  <main class="bmd-layout-content">
+    <div class="container-fluid p-0">
         <div class="container" style="min-height: 100%;">
             <div class="row" style="min-height: 100%;">
                 <div class="col-10">
@@ -30,16 +58,13 @@
                 </div>
                 <div class="col-2 d-none d-md-block"  style="background-color:#E6E6E6;">
                     {% block body_right_content %}
-                    <div class="btn-group w-100 btn-group-justified" role="group" aria-label="Justified button group">
-                    <a class="btn btn-lg hidden-lg-down" role="button" style="width:70%;" href="http://127.0.0.1:8000/login">Login</a>
-                    <button class="btn btn-lg btn-secondary" role="button" style="width:30%;" onclick="prompt('Register: Please enter your name', '')">+</button>
-                    </div>
+                    
                     <a href="http://207.154.196.33/" class="btn w-100" role="button" style="border-color:black;" target="_blank">Dev Link</a>
                     {% endblock %}
                 </div>
             </div>
         </div>
-        <div class="container d-none d-sm-block" style="background-color:#E6E6E6;">
+        <div class="container-fluid d-none d-sm-block" style="background-color:#E6E6E6;">
             <div class="row" style="bottom: 0">
                 <div class="col">
                     ArmaRepositoryManager
@@ -56,11 +81,15 @@
             </div>
         </div>
         
-        {% block javascripts %}
+      
+        </div>
+  </main>
+</div>
+  {% block javascripts %}
             <script src="{{ asset('build/js/app.js') }}"></script>
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+            <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
         {% endblock %}
-    </body>
-</html>
