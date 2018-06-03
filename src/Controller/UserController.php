@@ -59,7 +59,15 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $user = $entityManager->getRepository('App:User')->find($request->query->get('uid'));
-        return new Response('Check that out, your Username is: '.$user->getUsername());
+        $username=$request->query->get('username');
+        $password=$request->query->get('password');
+        $remember=$request->query->get('remember');
+        $user = $entityManager->getRepository('App:User')->findOneBy(array('username'=> $username));
+        if(password_verify($password, $user->getPassword())){
+            return new Response('Check that out, your Username is: '.$user->getUsername(). '<br> Your UID is:'.$user->getUid().'<br>Password verified<br>Remind me:'.$remember);
+        }
+        else{
+            die('Wrong PSW');
+        }
     }
 }

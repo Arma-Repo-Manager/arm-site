@@ -10,10 +10,6 @@
         </div>
        <div class="jumbotron">
             <form action="/login_submit" methode="post">
-                <div class="form-group">
-                    <label for="uid">UID:</label>
-                    <input type="text" class="form-control" name="uid">
-                </div>
                  <div class="form-group">
                     <label for="username">Name:</label>
                     <input type="text" class="form-control" name="username">
@@ -23,7 +19,7 @@
                     <input type="password" class="form-control" name="password">
                 </div>
                 <div class="checkbox">
-                        <label><input type="checkbox" > Remember me</label>
+                        <label><input type="checkbox" name="remember" value="true" checked> Remember me</label>
                 </div>
                 <button type="submit" class="btn btn-default w-100">Submit</button>
             </form>
