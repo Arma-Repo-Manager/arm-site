@@ -57,9 +57,7 @@ class User
     public function __construct()
     {
         $this->created_at = new \DateTime(); 
-    }
-
-    
+    }    
     #uid
     public function getUid()
     {

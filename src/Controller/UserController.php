@@ -27,7 +27,7 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
 
         $user = new User();
-        $psw=password_hash($request->query->get('password'), PASSWORD_BCRYPT);
+        $psw=$this->hashPassword($request->query->get('password'), PASSWORD_BCRYPT);
         $user->setUsername($request->query->get('username'));
         $user->setPassword($psw);
         $user->setEmail($request->query->get('email'));
@@ -39,6 +39,11 @@ class UserController extends Controller
         $entityManager->flush();
 
         return new Response('Saved new user with uid '.$user->getUid());
+    }
+    private function hashPassword($password, $hash)
+    {
+        $passwordHashed=password_hash($password, $hash);
+        return $passwordHashed;
     }
     /**
      * @Route("/login", name="login")
