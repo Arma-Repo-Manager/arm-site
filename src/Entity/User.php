@@ -16,7 +16,7 @@ class User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $uid;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=45, unique=true)
@@ -81,10 +81,10 @@ class User
 
 
      
-    #uid
-    public function getUid()
+    #Id
+    public function getId()
     {
-        return $this->uid;
+        return $this->Id;
     }
     #username
     public function getUsername(): ?string
@@ -124,5 +124,42 @@ class User
 
         return $this;
     }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getDeletedAt(): ?\DateTimeInterface
+    {
+        return $this->deleted_at;
+    }
+
+    public function setDeletedAt(?\DateTimeInterface $deleted_at): self
+    {
+        $this->deleted_at = $deleted_at;
+
+        return $this;
+    }
+
 
 }

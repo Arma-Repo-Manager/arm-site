@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends Controller
 {
@@ -45,7 +46,7 @@ class UserController extends Controller
         // actually executes the queries (i.e. the INSERT request)
         $entityManager->flush();
 
-        return new Response('Saved new user with uid '.$user->getUid());
+        return new Response('Saved new user with Id '.$user->getId().$this->redirectToRoute('index'));
     }
     private function hashPassword($password, $algo)
     {
@@ -66,16 +67,32 @@ class UserController extends Controller
      */
     public function login(Request $request)
     {
+        
         $entityManager = $this->getDoctrine()->getManager();
         $username=$request->query->get('username');
         $password=$request->query->get('password');
         $remember=$request->query->get('remember');
         $user = $entityManager->getRepository('App:User')->findOneBy(array('username'=> $username));
         if(password_verify($password, $user->getPassword())){
-            return new Response('Check that out, your Username is: '.$user->getUsername(). '<br> Your UID is:'.$user->getUid().'<br>Password verified<br>Remind me:'.$remember);
+            $session = new Session();
+            $session->set('Id', $user->getId());
+            $session->set('username', $user->getUsername());
+            $session->set('email', $user->getEmail());
+            return new Response('Check that out, your Username is: '.$user->getUsername(). '<br> Your Id is:'.$user->getId().'<br>Password verified<br>Remind me:'.$remember);
         }
         else{
             die('Wrong PSW');
         }
+    }
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout(Request $request)
+    {   
+        $session = $this->get('session');
+        dump($session);
+        $session->remove('email');
+        $session->remove('Id');
+        return new Response('Session deleted');
     }
 }
