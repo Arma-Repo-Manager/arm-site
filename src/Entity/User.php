@@ -32,32 +32,55 @@ class User
      * @ORM\Column(type="string", length=100)
      */
     private $email;
-
-
     /**
      * @var \DateTime
-     * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $created_at;
 
      /**
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
      /**
       * 
-     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $deleted_at;
      /**
-     * @ORM\Column(name="activated_at", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $activated_at;
     
-    public function __construct()
+   /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
     {
-        $this->created_at = new \DateTime(); 
-    }    
+        $this->created_at = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated_at = new \DateTime("now");
+    }
+
+    /**
+     * Triggered on update
+     * @ORM\PreRemove
+     */
+    public function onPreRemove()
+    {
+        $this->deleted_at = new \DateTime("now");
+    }
+
+
+     
     #uid
     public function getUid()
     {

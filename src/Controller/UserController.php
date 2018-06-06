@@ -26,6 +26,13 @@ class UserController extends Controller
     {
         $entityManager = $this->getDoctrine()->getManager();
 
+        $username=$request->query->get('username');
+        $checkUsername = $entityManager->getRepository('App:User')->findOneBy(array('username'=> $username));
+        if($checkUsername){
+            return new Response('Username already used');
+        }
+        $entityManager->flush();
+
         $user = new User();
         $psw=$this->hashPassword($request->query->get('password'), PASSWORD_BCRYPT);
         $user->setUsername($request->query->get('username'));
@@ -40,9 +47,9 @@ class UserController extends Controller
 
         return new Response('Saved new user with uid '.$user->getUid());
     }
-    private function hashPassword($password, $hash)
+    private function hashPassword($password, $algo)
     {
-        $passwordHashed=password_hash($password, $hash);
+        $passwordHashed=password_hash($password, $algo);
         return $passwordHashed;
     }
     /**
