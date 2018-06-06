@@ -13,7 +13,7 @@ class UserController extends Controller
     /**
      * @Route("/register", name="register")
      */
-    public function register_page()
+    public function registerPage()
     {
         return $this->render('user/register.html.twig', [
             'controller_name' => 'Reg',
@@ -27,11 +27,7 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
 
         $user = new User();
-        function hashpsw($password){
-            $password = password_hash($password, PASSWORD_BCRYPT);
-                return $password;
-        }
-        $psw=hashpsw($request->query->get('password'));
+        $psw=password_hash($request->query->get('password'), PASSWORD_BCRYPT);
         $user->setUsername($request->query->get('username'));
         $user->setPassword($psw);
         $user->setEmail($request->query->get('email'));
@@ -47,7 +43,7 @@ class UserController extends Controller
     /**
      * @Route("/login", name="login")
      */
-    public function login_page()
+    public function loginPage()
     {
         return $this->render('user/login.html.twig', [
             'controller_name' => 'Login',

@@ -54,6 +54,12 @@ class User
      */
     private $activated_at;
     
+    public function __construct()
+    {
+        $this->created_at = new \DateTime(); 
+    }
+
+    
     #uid
     public function getUid()
     {
