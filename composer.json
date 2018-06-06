@@ -23,7 +23,8 @@
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
         "symfony/yaml": "^4.0",
-        "arm/crawler": "^1.0"
+        "arm/crawler": "^1.0",
+        "aws/aws-sdk-php": "^3.60"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
