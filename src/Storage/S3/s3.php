@@ -27,7 +27,6 @@ class s3 {
                 'Prefix' => 'mods/'
             ]);
             
-            echo "Keys retrieved!" . PHP_EOL;
             foreach ($objects as $object) {
                 if (strpos($object['Key'], '.zip') || strpos($object['Key'], '.ZIP') !== false) {
                     $result[] = $object['Key'];

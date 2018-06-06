@@ -29,13 +29,14 @@ class RepoController extends Controller
                 'mods' => $mods,
             ]);
         }
+        
         $entityManager = $this->getDoctrine()->getManager();
         $repo = new Repo();
 
         foreach($request->request->all() as $key => $mod) {
             if($mod !== 'on') {
                 $repo->setName($mod);
-                $repo->setFolder('test');
+                $repo->setFolder('test'); //AS_TODO: Fix this when repo-creator-package is finisched
                 $repo->setUserId(1);//AS_TODO: Fix this when registration is done!
             }
             $entityManager->persist($repo);
