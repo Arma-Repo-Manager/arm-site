@@ -90,9 +90,9 @@ class UserController extends Controller
     public function logout(Request $request)
     {   
         $session = $this->get('session');
-        dump($session);
+        $session->remove('username');
         $session->remove('email');
-        $session->remove('Id');
+        $session->remove('id');
         return new Response('Session deleted');
     }
 }

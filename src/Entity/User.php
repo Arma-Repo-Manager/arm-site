@@ -84,7 +84,7 @@ class User
     #Id
     public function getId()
     {
-        return $this->Id;
+        return $this->id;
     }
     #username
     public function getUsername(): ?string
