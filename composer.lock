@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e67c287f78f796cdd88aea67d71bc97",
+    "content-hash": "f193344e96e5c79d404615d9c8fc8682",
     "packages": [
         {
             "name": "arm/crawler",

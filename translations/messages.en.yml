@@ -1,0 +1,2 @@
+'Symfony is great': 'J''aime Symfony'
+'Hello %symfony_is_great%': '__Hello %symfony_is_great%'
