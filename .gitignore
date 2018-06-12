@@ -21,3 +21,9 @@ yarn-error.log
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> Freddy's Stuff###
+f_code_to_know.txt
+f_start_script.sh
+f_start_script2.sh
+###< Freddy's Stuff###

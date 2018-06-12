@@ -15,6 +15,7 @@
         "build": "encore production"
     },
     "dependencies": {
-        "axios": "^0.18.0"
+        "axios": "^0.18.0",
+        "rivets": "^0.9.6"
     }
 }
