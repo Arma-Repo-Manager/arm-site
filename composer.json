@@ -37,7 +37,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@207.154.196.33:arm/arm-crawler.git"
+            "url": "https://github.com/Arma-Repo-Manager/arm-crawler.git"
         }
     ],
     "config": {
