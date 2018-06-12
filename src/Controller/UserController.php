@@ -32,13 +32,19 @@ class UserController extends Controller
         if($checkUsername){
             return new Response('Username already used');
         }
+        else{
+            $password=$request->query->get('password');
+            $password_val=$request->query->get('password_validation');
+            $user=$request->query->get('username');
+            $email=$request->query->get('email');
+        }
         $entityManager->flush();
-
+        if(strlen($user) <= 20 and strlen($password) >= 8 and filter_var($email, FILTER_VALIDATE_EMAIL) and $password==$password_val){
         $user = new User();
-        $psw=$this->hashPassword($request->query->get('password'), PASSWORD_BCRYPT);
-        $user->setUsername($request->query->get('username'));
+        $psw=$this->hashPassword($password, PASSWORD_BCRYPT);
+        $user->setUsername($user);
         $user->setPassword($psw);
-        $user->setEmail($request->query->get('email'));
+        $user->setEmail($email);
 
         // tell Doctrine you want to (eventually) save the user (no queries yet)
         $entityManager->persist($user);
@@ -47,6 +53,12 @@ class UserController extends Controller
         $entityManager->flush();
 
         return new Response('Saved new user with Id '.$user->getId().$this->redirectToRoute('index'));
+        }
+        else{
+            return new Response('Username max: 20 Chars <br>
+            Email valid email format <br>
+            Password min: 8 Chars<br>Re-Type wrong');
+        }
     }
     private function hashPassword($password, $algo)
     {
@@ -58,9 +70,14 @@ class UserController extends Controller
      */
     public function loginPage()
     {
-        return $this->render('user/login.html.twig', [
-            'controller_name' => 'Login',
-        ]);
+        if($this->get('session')->has('username')){
+            return new Response ('Allready logedin');
+        }
+        else{
+            return $this->render('user/login.html.twig', [
+                'controller_name' => 'Login',
+            ]);
+        }
     }
     /**
      * @Route("/login_submit", name="login_submit")
@@ -73,15 +90,15 @@ class UserController extends Controller
         $password=$request->query->get('password');
         $remember=$request->query->get('remember');
         $user = $entityManager->getRepository('App:User')->findOneBy(array('username'=> $username));
-        if(password_verify($password, $user->getPassword())){
-            $session = new Session();
-            $session->set('Id', $user->getId());
-            $session->set('username', $user->getUsername());
-            $session->set('email', $user->getEmail());
-            return new Response('Check that out, your Username is: '.$user->getUsername(). '<br> Your Id is:'.$user->getId().'<br>Password verified<br>Remind me:'.$remember);
+        if ($user and password_verify($password, $user->getPassword())){
+                $session = new Session();
+                $session->set('Id', $user->getId());
+                $session->set('username', $user->getUsername());
+                $session->set('email', $user->getEmail());
+                return new Response('Check that out, your Username is: '.$user->getUsername(). '<br> Your Id is:'.$user->getId().'<br>Password verified<br>Remind me:'.$remember);
         }
         else{
-            die('Wrong PSW');
+            die('Wrong Password or Username');
         }
     }
     /**

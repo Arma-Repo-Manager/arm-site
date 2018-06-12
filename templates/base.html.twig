@@ -29,13 +29,14 @@
         {% block nav_action %}
             <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
                 <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{{ path('profil') }}">{{app.session.get('username')}}</a>
+                <a class="btn btn-warning btn-lg hidden-lg-down w-30" role="button" href="{{ path('logout') }}">&#x274C;</a>
             </div>
         {% endblock %}
         
         {% else %}
             <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
                 <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{{ path('login') }}">Login</a>
-                <a class="btn btn-lg btn-secondary w-30" role="button" href="{{ path('register') }}">+</a>
+                <a class="btn btn-secondary btn-lg  w-30" role="button" href="{{ path('register') }}">+</a>
             </div>  
         {% endif %}
        
