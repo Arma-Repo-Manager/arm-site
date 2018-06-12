@@ -9,90 +9,91 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
             <link href="{{ asset('build/css/app.css') }}" rel="stylesheet" />
-             <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
         {% endblock %}
     </head>
 <body>
-<div class="bmd-layout-container bmd-drawer-f-l ">
-  <header class="bmd-layout-header">
-    <div class="navbar navbar-light bg-faded">
-      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
-        <span class="sr-only">Toggle drawer</span>
-        <i class="material-icons"><img src="{{ asset('build/icons/menu.png') }}" class="icon-small" alt="menu"></i>
-      </button>
-       <div class="page-header">
-            <a href="{{ path('index') }}">{% block nav_title %}<h1> ArmaRepositoryManager</h1>{% endblock %}</a>
-        </div>
-      <ul class="nav navbar-nav">
-      {% block nav_action %}
-        <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
-            <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{{ path('login') }}">Login</a>
-            <button class="btn btn-lg btn-secondary w-30" role="button" onclick="prompt('Register: Please enter your name', '')">+</button>
-        </div>  
-      {% endblock %}
-      </ul>
-    </div>
-  </header>
-  <div id="dw-s1" class="bmd-layout-drawer bg-faded">
-    <header>
-      <a class="navbar-brand" href="{{ path('index') }}">Home</a>
-    </header>
-    <ul class="list-group">
-      <a class="list-group-item">Link 1</a>
-      <a class="list-group-item">Link 2</a>
-      <a class="list-group-item">Link 3</a>
-    </ul>
-  </div>
-  <main class="bmd-layout-content">
-    <div class="container-fluid p-0">
-        <div class="container minh-100">
-            <div class="row minh-100">
-                <div class="col-10">
-                    <div class="row background-color-primary">
-                       
-                    </div>
-                {% block body_content %}
-                    <div class="row">
-                        <h2>Content</h2>
-                    </div>
-                    
-                {% endblock %}
-                </div>
-                <div class="col-2 d-none d-md-block background-color-primary">
-                    {% block body_right_content %}
-                    
-                    <a href="http://207.154.196.33/" class="btn w-100 border-color-black" role="button" target="_blank">Dev Link</a>
-                    {% endblock %}
-                </div>
+    <div class="bmd-layout-container bmd-drawer-f-l ">
+    <header class="bmd-layout-header">
+        <div class="navbar navbar-light bg-faded">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+            <span class="sr-only">Toggle drawer</span>
+            <i class="material-icons"><img src="{{ asset('build/icons/menu.png') }}" class="icon-small" alt="menu"></i>
+        </button>
+        <div class="page-header">
+                <a href="{{ path('index') }}">{% block nav_title %}<h1> ArmaRepositoryManager</h1>{% endblock %}</a>
             </div>
-        </div>
-        <div class="container-fluid d-none d-sm-block background-color-primary">
-            <div class="row">
-                <div class="col">
-                    ArmaRepositoryManager
-                </div>
-                <div class="col">
-                    Version: alpha
-                </div>
-                <div class="col">
-                    Created by Flaver & Reloader
-                </div>
-                <div class="col-2 text-right">
-                    0.0.0.0✅
-                </div>
-            </div>
-        </div>
-        
-      
-        </div>
-  </main>
-</div>
-  {% block javascripts %}
-            <script src="{{ asset('build/js/app.js') }}"></script>
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-            <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-            <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+        <ul class="nav navbar-nav">
+        {% block nav_action %}
+            <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
+                <a class="btn btn-info btn-lg hidden-lg-down w-70" role="button" href="{{ path('login') }}">Login</a>
+                <button class="btn btn-lg btn-secondary w-30" role="button" onclick="prompt('Register: Please enter your name', '')">+</button>
+            </div>  
         {% endblock %}
+        </ul>
+        </div>
+    </header>
+    <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+        <header>
+        <a class="navbar-brand" href="{{ path('index') }}">Home</a>
+        </header>
+        <ul class="list-group">
+        <a class="list-group-item">Link 1</a>
+        <a class="list-group-item">Link 2</a>
+        <a class="list-group-item">Link 3</a>
+        </ul>
+    </div>
+    <main class="bmd-layout-content">
+        <div class="container-fluid p-0">
+            <div class="container minh-100">
+                <div class="row minh-100">
+                    <div class="col-10">
+                        <div class="row background-color-primary">
+                        
+                        </div>
+                    {% block body_content %}
+                        <div class="row">
+                            <h2>Content</h2>
+                        </div>
+                        
+                    {% endblock %}
+                    </div>
+                    <div class="col-2 d-none d-md-block background-color-primary">
+                        {% block body_right_content %}
+                        
+                        <a href="http://207.154.196.33/" class="btn w-100 border-color-black" role="button" target="_blank">Dev Link</a>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid d-none d-sm-block background-color-primary">
+                <div class="row">
+                    <div class="col">
+                        ArmaRepositoryManager
+                    </div>
+                    <div class="col">
+                        Version: alpha
+                    </div>
+                    <div class="col">
+                        Created by Flaver & Reloader
+                    </div>
+                    <div class="col-2 text-right">
+                        0.0.0.0✅
+                    </div>
+                </div>
+            </div>
+            
+        
+            </div>
+    </main>
+    </div>
+</body>
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script src="{{ asset('build/js/app.js') }}"></script>
+{% endblock %}
