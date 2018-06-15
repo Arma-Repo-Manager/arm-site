@@ -51,7 +51,7 @@ class UserController extends Controller
         else{
             return new Response('Email '.$email.' not verified');
         }
-        if(strlen($password) >= 8){
+        if(strlen($password) > 8){
             $verifed=true;
         }
         else{
@@ -66,7 +66,7 @@ class UserController extends Controller
         if($verified == true and strlen($user) <= 20 and strlen($password) >= 8 and filter_var($email, FILTER_VALIDATE_EMAIL) and $password==$password_val){
         $user = new User();
         $psw=$this->hashPassword($password, PASSWORD_BCRYPT);
-        $user->setUsername($user);
+        $user->setUsername($username);
         $user->setPassword($psw);
         $user->setEmail($email);
 
