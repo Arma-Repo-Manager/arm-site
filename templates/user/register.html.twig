@@ -11,7 +11,7 @@
        <div class="jumbotron">
             <form action="/register_submit" methode="post">
                  <div class="form-group">
-                    <label for="username">Name:</label>
+                    <label for="username">Userame:</label>
                     <input type="text" class="form-control" name="username">
                 </div>
                 <div class="form-group">
@@ -21,10 +21,11 @@
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" name="password">
+                     <p class="bmd-label">mindestens 8 Zeichen</p>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password retype:</label>
-                    <input type="password_validation" class="form-control" name="password">
+                    <label for="password_validation">Password retype:</label>
+                    <input type="password" class="form-control" name="password_validation">
                 </div>
                 <div class="checkbox">
                         <label><input type="checkbox" > Read</label>
@@ -33,5 +34,10 @@
             </form>
 
          </div>
+         <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        </script>
 {% endblock %}
 
