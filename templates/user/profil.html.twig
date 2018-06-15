@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ARM/{{ controller_name }}!{% endblock %}
+
+{% block nav_title %}<h1>ARM/{{ controller_name }} </h1>{% endblock %}
+{% block body_title %}<h1>ARM/{{ controller_name }} </h1>{% endblock %}
+
+ {% block nav_action %}
+    <div class="btn-group w-100 btn-group-justified m-0" role="group" aria-label="Justified button group">
+        <a class="btn btn-warning btn-lg hidden-lg-down w-100" role="button" href="{{ path('logout') }}">Logout</a>
+    </div>
+{% endblock %}
+{% block body_content %}
+        <div class="row" class="spacer-small">
+        </div>
+       <div class="jumbotron">
+           <h1>Hallo {{ username }}</h1>
+           <a href="{{ path('logout') }}" class="button">Logout</a>
+         </div>
+{% endblock %}
+
