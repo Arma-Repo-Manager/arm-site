@@ -28,15 +28,20 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
 
         $username=$request->query->get('username');
-        $checkUsername = $entityManager->getRepository('App:User')->findOneBy(array('username'=> $username));
-        if($checkUsername){
-            return new Response('Username already used');
+        if($username){
+            $checkUsername = $entityManager->getRepository('App:User')->findOneBy(array('username'=> $username));
+            if($checkUsername){
+                return new Response('Username already used');
+            }
+            else{
+                $password=$request->query->get('password');
+                $password_val=$request->query->get('password_validation');
+                $user=$request->query->get('username');
+                $email=$request->query->get('email');
+            }
         }
         else{
-            $password=$request->query->get('password');
-            $password_val=$request->query->get('password_validation');
-            $user=$request->query->get('username');
-            $email=$request->query->get('email');
+            return new Response('Username cant be empty');
         }
         $entityManager->flush();
         if(strlen($user) <= 20){
