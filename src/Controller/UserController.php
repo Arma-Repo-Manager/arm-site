@@ -44,30 +44,7 @@ class UserController extends Controller
             return new Response('Username cant be empty');
         }
         $entityManager->flush();
-        if(strlen($user) <= 20){
-            $verifed=true;
-        }
-        else{
-            return new Response('Username can not be longer then 20');
-        }
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $verified=true;
-        }
-        else{
-            return new Response('Email '.$email.' not verified');
-        }
-        if(strlen($password) > 8){
-            $verifed=true;
-        }
-        else{
-            return new Response('Password must be at least 8 chars long');
-        }
-        if($password==$password_val){
-            $verified=true;
-        }
-        else{
-            return new Response('Password different to password validation');
-        }
+        $verified=$this->verifieRegister($user,$email,$password,$password_val);
         if($verified == true and strlen($user) <= 20 and strlen($password) >= 8 and filter_var($email, FILTER_VALIDATE_EMAIL) and $password==$password_val){
         $user = new User();
         $psw=$this->hashPassword($password, PASSWORD_BCRYPT);
@@ -93,6 +70,34 @@ class UserController extends Controller
     {
         $passwordHashed=password_hash($password, $algo);
         return $passwordHashed;
+    }
+
+    private function verifieRegister($user,$email,$password,$password_val){
+        if(strlen($user) <= 20){
+            $verifed=true;
+        }
+        else{
+            return new Response('Username can not be longer then 20');
+        }
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $verified=true;
+        }
+        else{
+            return new Response('Email '.$email.' not verified');
+        }
+        if(strlen($password) > 8){
+            $verifed=true;
+        }
+        else{
+            return new Response('Password must be at least 8 chars long');
+        }
+        if($password==$password_val){
+            $verified=true;
+        }
+        else{
+            return new Response('Password different to password validation');
+        }
+        return $verified;
     }
     /**
      * @Route("/login", name="login")
